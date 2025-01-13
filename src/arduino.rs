@@ -2,7 +2,7 @@
 use std ::{collections::HashMap,time::Duration,thread}; //
 
 
-
+pub const INPUT: u8 = 0;
 pub const OUTPUT: u8 = 1;
 
 pub const LOW: u8 = 0;
