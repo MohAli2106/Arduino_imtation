@@ -3,11 +3,10 @@ use std ::{collections::HashMap,time::Duration,thread}; //
 
 
 
-pub const input:u8=0;
-pub const output:u8=1;
+pub const OUTPUT: u8 = 1;
 
-pub const low:u8=0;
-pub const high:u8=1;
+pub const LOW: u8 = 0;
+pub const HIGH: u8 = 1;
 
 
 pub struct Arduino{
@@ -35,14 +34,14 @@ impl Arduino{
 
     pub fn dig_write(&mut self,pin:u8,value:u8){
        if let Some(&mode)= self.pins.get(&pin){
-            if mode==output{
+            if mode==OUTPUT{
                 self.dig_pins.insert(pin,value);
             }println!("Pin {} is not set as output",pin);
         }println!("Pin {} is not set",pin);
     }
     pub fn anlg_write(&mut self, pin:u8,value:u16){
         if let Some(&mode)=self.pins.get(&pin){
-            if mode==output{
+            if mode==OUTPUT{
                 self.anlg_pins.insert(pin,value);
                     
             }println!("Pin {} is not set as output",pin);
