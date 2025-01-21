@@ -16,14 +16,11 @@ fn main() {
     led.turn_on();
     println!("LED is ON");
 
-    // Read the state of the LED
+   
     if let Some(state) = led.read_state() {
         println!("LED state: {}", state);
     }
 
-    // Turn off the LED
-    led.turn_off();
-    println!("LED is OFF");
+   
 
-    }
 }
