@@ -1,5 +1,5 @@
 
-use std ::{collections::HashMap,time::Duration,thread} ;//
+use std ::{collections::HashMap,time::Duration,thread, rc::Rc, cell::RefCell} ;//
 
 
 pub const INPUT: u8 = 0;
@@ -16,8 +16,8 @@ pub struct Arduino{
 
 
 
-impl Arduino{
-    pub fn new() -> Self {
+impl Arduino {
+    pub fn new() -> Rc<RefCell<Self>> {
         let mut arduino = Arduino {
             pins: HashMap::new(),
             dig_pins: HashMap::new(),
@@ -36,7 +36,7 @@ impl Arduino{
             arduino.anlg_pins.insert(pin + 14, 0);
         }
 
-        arduino
+        Rc::new(RefCell::new(arduino))
     }
 
     pub fn pinMode(&mut self,pin:u8,mode:u8){
